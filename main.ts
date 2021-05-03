@@ -32,6 +32,7 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.laNave, function (sprite, ot
     sprite.destroy()
     otherSprite.destroy(effects.disintegrate)
     info.changeScoreBy(2)
+    info.changeLifeBy(1)
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     sprite.destroy()
@@ -110,7 +111,7 @@ game.onUpdateInterval(2000, function () {
     projectile.x = randint(10, 150)
 })
 forever(function () {
-    if (info.score() == 20) {
+    if (info.score() >= 20) {
         game.over(true)
     }
 })
