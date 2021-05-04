@@ -7,6 +7,161 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.laNave, function (sprite, otherS
     sprite.startEffect(effects.fire, 200)
     info.changeLifeBy(-1)
 })
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    projectile2 = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . b . . . . . . . 
+        . . . . . . . b d b . . . . . . 
+        . . . . . . . c d c . . . . . . 
+        . . . . . . . c 2 c . . . . . . 
+        . . . . . . c d 2 d c . . . . . 
+        . . . b c c d 2 2 2 d c c b . . 
+        . . b d d 2 2 2 2 2 2 2 d d b . 
+        . . . b c c d 2 2 2 d c c b . . 
+        . . . . . . c d 2 d c . . . . . 
+        . . . . . . . c 2 c . . . . . . 
+        . . . . . . . c d c . . . . . . 
+        . . . . . . . b d b . . . . . . 
+        . . . . . . . . b . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, ship, 0, -180)
+    projectile2.startEffect(effects.coolRadial, 100)
+    projectile2 = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . b . . . . . . . 
+        . . . . . . . b d b . . . . . . 
+        . . . . . . . c d c . . . . . . 
+        . . . . . . . c 2 c . . . . . . 
+        . . . . . . c d 2 d c . . . . . 
+        . . . b c c d 2 2 2 d c c b . . 
+        . . b d d 2 2 2 2 2 2 2 d d b . 
+        . . . b c c d 2 2 2 d c c b . . 
+        . . . . . . c d 2 d c . . . . . 
+        . . . . . . . c 2 c . . . . . . 
+        . . . . . . . c d c . . . . . . 
+        . . . . . . . b d b . . . . . . 
+        . . . . . . . . b . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, ship, -180, -180)
+    projectile2.startEffect(effects.coolRadial, 100)
+    projectile2 = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . b . . . . . . . 
+        . . . . . . . b d b . . . . . . 
+        . . . . . . . c d c . . . . . . 
+        . . . . . . . c 2 c . . . . . . 
+        . . . . . . c d 2 d c . . . . . 
+        . . . b c c d 2 2 2 d c c b . . 
+        . . b d d 2 2 2 2 2 2 2 d d b . 
+        . . . b c c d 2 2 2 d c c b . . 
+        . . . . . . c d 2 d c . . . . . 
+        . . . . . . . c 2 c . . . . . . 
+        . . . . . . . c d c . . . . . . 
+        . . . . . . . b d b . . . . . . 
+        . . . . . . . . b . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, ship, 0, 180)
+    projectile2.startEffect(effects.coolRadial, 100)
+    projectile2 = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . b . . . . . . . 
+        . . . . . . . b d b . . . . . . 
+        . . . . . . . c d c . . . . . . 
+        . . . . . . . c 2 c . . . . . . 
+        . . . . . . c d 2 d c . . . . . 
+        . . . b c c d 2 2 2 d c c b . . 
+        . . b d d 2 2 2 2 2 2 2 d d b . 
+        . . . b c c d 2 2 2 d c c b . . 
+        . . . . . . c d 2 d c . . . . . 
+        . . . . . . . c 2 c . . . . . . 
+        . . . . . . . c d c . . . . . . 
+        . . . . . . . b d b . . . . . . 
+        . . . . . . . . b . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, ship, 180, 180)
+    projectile2.startEffect(effects.coolRadial, 100)
+    projectile2 = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . b . . . . . . . 
+        . . . . . . . b d b . . . . . . 
+        . . . . . . . c d c . . . . . . 
+        . . . . . . . c 2 c . . . . . . 
+        . . . . . . c d 2 d c . . . . . 
+        . . . b c c d 2 2 2 d c c b . . 
+        . . b d d 2 2 2 2 2 2 2 d d b . 
+        . . . b c c d 2 2 2 d c c b . . 
+        . . . . . . c d 2 d c . . . . . 
+        . . . . . . . c 2 c . . . . . . 
+        . . . . . . . c d c . . . . . . 
+        . . . . . . . b d b . . . . . . 
+        . . . . . . . . b . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, ship, 180, 0)
+    projectile2.startEffect(effects.coolRadial, 100)
+    projectile2 = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . b . . . . . . . 
+        . . . . . . . b d b . . . . . . 
+        . . . . . . . c d c . . . . . . 
+        . . . . . . . c 2 c . . . . . . 
+        . . . . . . c d 2 d c . . . . . 
+        . . . b c c d 2 2 2 d c c b . . 
+        . . b d d 2 2 2 2 2 2 2 d d b . 
+        . . . b c c d 2 2 2 d c c b . . 
+        . . . . . . c d 2 d c . . . . . 
+        . . . . . . . c 2 c . . . . . . 
+        . . . . . . . c d c . . . . . . 
+        . . . . . . . b d b . . . . . . 
+        . . . . . . . . b . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, ship, 180, -180)
+    projectile2.startEffect(effects.coolRadial, 100)
+    projectile2 = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . b . . . . . . . 
+        . . . . . . . b d b . . . . . . 
+        . . . . . . . c d c . . . . . . 
+        . . . . . . . c 2 c . . . . . . 
+        . . . . . . c d 2 d c . . . . . 
+        . . . b c c d 2 2 2 d c c b . . 
+        . . b d d 2 2 2 2 2 2 2 d d b . 
+        . . . b c c d 2 2 2 d c c b . . 
+        . . . . . . c d 2 d c . . . . . 
+        . . . . . . . c 2 c . . . . . . 
+        . . . . . . . c d c . . . . . . 
+        . . . . . . . b d b . . . . . . 
+        . . . . . . . . b . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, ship, -180, 0)
+    projectile2.startEffect(effects.coolRadial, 100)
+    projectile2 = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . b . . . . . . . 
+        . . . . . . . b d b . . . . . . 
+        . . . . . . . c d c . . . . . . 
+        . . . . . . . c 2 c . . . . . . 
+        . . . . . . c d 2 d c . . . . . 
+        . . . b c c d 2 2 2 d c c b . . 
+        . . b d d 2 2 2 2 2 2 2 d d b . 
+        . . . b c c d 2 2 2 d c c b . . 
+        . . . . . . c d 2 d c . . . . . 
+        . . . . . . . c 2 c . . . . . . 
+        . . . . . . . c d c . . . . . . 
+        . . . . . . . b d b . . . . . . 
+        . . . . . . . . b . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, ship, -180, 180)
+    projectile2.startEffect(effects.coolRadial, 100)
+    pause(10000)
+})
 function introduction () {
     game.setDialogFrame(img`
         ..aaaaaaaaaaaaaaaaaaaa..
@@ -57,6 +212,7 @@ function introduction () {
         ..........................
         `)
     showIntroduction("Move with W-A-S-D and shot with Spacebar")
+    showIntroduction("Press E every 10 seconds for special ability")
     showIntroduction("25 points to WIN")
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
