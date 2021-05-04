@@ -8,7 +8,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.laNave, function (sprite, otherS
     info.changeLifeBy(-2)
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    projectile = sprites.createProjectileFromSprite(img`
+    projectile2 = sprites.createProjectileFromSprite(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . b . . . . . . . 
@@ -26,7 +26,64 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . b . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, ship, 0, -140)
-    projectile.startEffect(effects.coolRadial, 100)
+    projectile2.startEffect(effects.coolRadial, 100)
+    projectile2 = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . b . . . . . . . 
+        . . . . . . . b d b . . . . . . 
+        . . . . . . . c d c . . . . . . 
+        . . . . . . . c 5 c . . . . . . 
+        . . . . . . c d 5 d c . . . . . 
+        . . . b c c d 5 5 5 d c c b . . 
+        . . b d d 5 5 5 5 5 5 5 d d b . 
+        . . . b c c d 5 5 5 d c c b . . 
+        . . . . . . c d 5 d c . . . . . 
+        . . . . . . . c 5 c . . . . . . 
+        . . . . . . . c d c . . . . . . 
+        . . . . . . . b d b . . . . . . 
+        . . . . . . . . b . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, ship, 0, 140)
+    projectile2.startEffect(effects.coolRadial, 100)
+    projectile2 = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . b . . . . . . . 
+        . . . . . . . b d b . . . . . . 
+        . . . . . . . c d c . . . . . . 
+        . . . . . . . c 5 c . . . . . . 
+        . . . . . . c d 5 d c . . . . . 
+        . . . b c c d 5 5 5 d c c b . . 
+        . . b d d 5 5 5 5 5 5 5 d d b . 
+        . . . b c c d 5 5 5 d c c b . . 
+        . . . . . . c d 5 d c . . . . . 
+        . . . . . . . c 5 c . . . . . . 
+        . . . . . . . c d c . . . . . . 
+        . . . . . . . b d b . . . . . . 
+        . . . . . . . . b . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, ship, 140, 0)
+    projectile2.startEffect(effects.coolRadial, 100)
+    projectile2 = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . b . . . . . . . 
+        . . . . . . . b d b . . . . . . 
+        . . . . . . . c d c . . . . . . 
+        . . . . . . . c 5 c . . . . . . 
+        . . . . . . c d 5 d c . . . . . 
+        . . . b c c d 5 5 5 d c c b . . 
+        . . b d d 5 5 5 5 5 5 5 d d b . 
+        . . . b c c d 5 5 5 d c c b . . 
+        . . . . . . c d 5 d c . . . . . 
+        . . . . . . . c 5 c . . . . . . 
+        . . . . . . . c d c . . . . . . 
+        . . . . . . . b d b . . . . . . 
+        . . . . . . . . b . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, ship, -140, 0)
+    projectile2.startEffect(effects.coolRadial, 100)
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.laNave, function (sprite, otherSprite) {
     sprite.destroy()
@@ -46,7 +103,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     info.changeLifeBy(-1)
 })
 let nave: Sprite = null
-let projectile: Sprite = null
+let projectile2: Sprite = null
 let ship: Sprite = null
 let asteroids = [sprites.space.spaceAsteroid0, sprites.space.spaceAsteroid1, sprites.space.spaceAsteroid4, sprites.space.spaceAsteroid3]
 ship = sprites.create(img`
@@ -106,9 +163,9 @@ game.onUpdateInterval(5000, function () {
     nave.y = randint(10, 150)
 })
 game.onUpdateInterval(2000, function () {
-    projectile = sprites.createProjectileFromSide(asteroids[randint(0, asteroids.length - 1)], 0, 75)
-    projectile.setKind(SpriteKind.Enemy)
-    projectile.x = randint(10, 150)
+    projectile2 = sprites.createProjectileFromSide(asteroids[randint(0, asteroids.length - 1)], 0, 75)
+    projectile2.setKind(SpriteKind.Enemy)
+    projectile2.x = randint(10, 150)
 })
 forever(function () {
     if (info.score() >= 20) {
