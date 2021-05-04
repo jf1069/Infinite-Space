@@ -5,8 +5,37 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.laNave, function (sprite, otherS
     scene.cameraShake(4, 500)
     otherSprite.destroy(effects.disintegrate)
     sprite.startEffect(effects.fire, 200)
-    info.changeLifeBy(-2)
+    info.changeLifeBy(-1)
 })
+function introduction () {
+    game.setDialogFrame(img`
+        ..aaaaaaaaaaaaaaaaaaaa..
+        .ac111111111111111111ca.
+        ac1caaaaaaaaaaaaaaaac1ca
+        a1caaaaaaaaaaaaaaaaaac1a
+        a1ac1111111111111111ca1a
+        a1a111111111111111111a1a
+        a1a111111111111111111a1a
+        a1a111111111111111111a1a
+        a1a111111111111111111a1a
+        a1a111111111111111111a1a
+        a1a111111111111111111a1a
+        a1a111111111111111111a1a
+        a1a111111111111111111a1a
+        a1a111111111111111111a1a
+        a1a111111111111111111a1a
+        a1a111111111111111111a1a
+        a1a111111111111111111a1a
+        a1a111111111111111111a1a
+        a1a111111111111111111a1a
+        a1ac1111111111111111ca1a
+        ac1aaaaaaaaaaaaaaaaaa1ca
+        aac111111111111111111caa
+        .aaaaaaaaaaaaaaaaaaaaaa.
+        ..aaaaaaaaaaaaaaaaaaaa..
+        `)
+    showIntroduction("Move with WASD and shot with Spacebar - 25 points to WIN")
+}
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     projectile2 = sprites.createProjectileFromSprite(img`
         . . . . . . . . . . . . . . . . 
@@ -14,13 +43,13 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . b . . . . . . . 
         . . . . . . . b d b . . . . . . 
         . . . . . . . c d c . . . . . . 
-        . . . . . . . c 5 c . . . . . . 
-        . . . . . . c d 5 d c . . . . . 
-        . . . b c c d 5 5 5 d c c b . . 
-        . . b d d 5 5 5 5 5 5 5 d d b . 
-        . . . b c c d 5 5 5 d c c b . . 
-        . . . . . . c d 5 d c . . . . . 
-        . . . . . . . c 5 c . . . . . . 
+        . . . . . . . c 1 c . . . . . . 
+        . . . . . . c d 1 d c . . . . . 
+        . . . b c c d 1 1 1 d c c b . . 
+        . . b d d 1 1 1 1 1 1 1 d d b . 
+        . . . b c c d 1 1 1 d c c b . . 
+        . . . . . . c d 1 d c . . . . . 
+        . . . . . . . c 1 c . . . . . . 
         . . . . . . . c d c . . . . . . 
         . . . . . . . b d b . . . . . . 
         . . . . . . . . b . . . . . . . 
@@ -33,13 +62,13 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . b . . . . . . . 
         . . . . . . . b d b . . . . . . 
         . . . . . . . c d c . . . . . . 
-        . . . . . . . c 5 c . . . . . . 
-        . . . . . . c d 5 d c . . . . . 
-        . . . b c c d 5 5 5 d c c b . . 
-        . . b d d 5 5 5 5 5 5 5 d d b . 
-        . . . b c c d 5 5 5 d c c b . . 
-        . . . . . . c d 5 d c . . . . . 
-        . . . . . . . c 5 c . . . . . . 
+        . . . . . . . c 1 c . . . . . . 
+        . . . . . . c d 1 d c . . . . . 
+        . . . b c c d 1 1 1 d c c b . . 
+        . . b d d 1 1 1 1 1 1 1 d d b . 
+        . . . b c c d 1 1 1 d c c b . . 
+        . . . . . . c d 1 d c . . . . . 
+        . . . . . . . c 1 c . . . . . . 
         . . . . . . . c d c . . . . . . 
         . . . . . . . b d b . . . . . . 
         . . . . . . . . b . . . . . . . 
@@ -52,13 +81,13 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . b . . . . . . . 
         . . . . . . . b d b . . . . . . 
         . . . . . . . c d c . . . . . . 
-        . . . . . . . c 5 c . . . . . . 
-        . . . . . . c d 5 d c . . . . . 
-        . . . b c c d 5 5 5 d c c b . . 
-        . . b d d 5 5 5 5 5 5 5 d d b . 
-        . . . b c c d 5 5 5 d c c b . . 
-        . . . . . . c d 5 d c . . . . . 
-        . . . . . . . c 5 c . . . . . . 
+        . . . . . . . c 1 c . . . . . . 
+        . . . . . . c d 1 d c . . . . . 
+        . . . b c c d 1 1 1 d c c b . . 
+        . . b d d 1 1 1 1 1 1 1 d d b . 
+        . . . b c c d 1 1 1 d c c b . . 
+        . . . . . . c d 1 d c . . . . . 
+        . . . . . . . c 1 c . . . . . . 
         . . . . . . . c d c . . . . . . 
         . . . . . . . b d b . . . . . . 
         . . . . . . . . b . . . . . . . 
@@ -71,13 +100,13 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . b . . . . . . . 
         . . . . . . . b d b . . . . . . 
         . . . . . . . c d c . . . . . . 
-        . . . . . . . c 5 c . . . . . . 
-        . . . . . . c d 5 d c . . . . . 
-        . . . b c c d 5 5 5 d c c b . . 
-        . . b d d 5 5 5 5 5 5 5 d d b . 
-        . . . b c c d 5 5 5 d c c b . . 
-        . . . . . . c d 5 d c . . . . . 
-        . . . . . . . c 5 c . . . . . . 
+        . . . . . . . c 1 c . . . . . . 
+        . . . . . . c d 1 d c . . . . . 
+        . . . b c c d 1 1 1 d c c b . . 
+        . . b d d 1 1 1 1 1 1 1 d d b . 
+        . . . b c c d 1 1 1 d c c b . . 
+        . . . . . . c d 1 d c . . . . . 
+        . . . . . . . c 1 c . . . . . . 
         . . . . . . . c d c . . . . . . 
         . . . . . . . b d b . . . . . . 
         . . . . . . . . b . . . . . . . 
@@ -88,9 +117,11 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.laNave, function (sprite, otherSprite) {
     sprite.destroy()
     otherSprite.destroy(effects.disintegrate)
-    info.changeScoreBy(2)
-    info.changeLifeBy(1)
+    info.changeScoreBy(1)
 })
+function showIntroduction (text: string) {
+    game.showLongText(text, DialogLayout.Bottom)
+}
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     sprite.destroy()
     otherSprite.destroy(effects.disintegrate)
@@ -102,9 +133,11 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     sprite.startEffect(effects.fire, 200)
     info.changeLifeBy(-1)
 })
+let nave2: Sprite = null
 let nave: Sprite = null
 let projectile2: Sprite = null
 let ship: Sprite = null
+introduction()
 let asteroids = [sprites.space.spaceAsteroid0, sprites.space.spaceAsteroid1, sprites.space.spaceAsteroid4, sprites.space.spaceAsteroid3]
 ship = sprites.create(img`
     ..........................
@@ -160,7 +193,36 @@ game.onUpdateInterval(5000, function () {
         ...................f.....
         `, -90, 0)
     nave.setKind(SpriteKind.laNave)
-    nave.y = randint(10, 150)
+    nave.y = randint(40, 140)
+})
+game.onUpdateInterval(5000, function () {
+    nave2 = sprites.createProjectileFromSide(img`
+        .....f...................
+        .....ff..................
+        .....fff7................
+        .....fbf.................
+        .....fbf.................
+        .....fbff................
+        .....fddf................
+        .....f6df................
+        f..fff6dff..fffff........
+        ffff666d1ffff999ffff.....
+        f11d6666111199999bbfff...
+        f1dd66666611199999bbbffff
+        fdd66666111199999bbfff...
+        ffff666d1ffff999ffff.....
+        f..fff6dff..fffff........
+        .....fddf................
+        .....fdbf................
+        .....fbff................
+        .....fbf.................
+        .....fbf.................
+        .....ffff7...............
+        .....ff..................
+        .....f...................
+        `, 90, 0)
+    nave2.setKind(SpriteKind.laNave)
+    nave2.y = randint(40, 140)
 })
 game.onUpdateInterval(2000, function () {
     projectile2 = sprites.createProjectileFromSide(asteroids[randint(0, asteroids.length - 1)], 0, 75)
@@ -168,7 +230,7 @@ game.onUpdateInterval(2000, function () {
     projectile2.x = randint(10, 150)
 })
 forever(function () {
-    if (info.score() >= 20) {
+    if (info.score() >= 25) {
         game.over(true)
     }
 })
