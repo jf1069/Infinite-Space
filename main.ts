@@ -216,7 +216,7 @@ function introduction () {
         `)
     showIntroduction("Move with W-A-S-D and shot with Spacebar")
     showIntroduction("Press E every 10 seconds for special ability")
-    showIntroduction("25 points to WIN")
+    showIntroduction("50 points to WIN")
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     projectile2 = sprites.createProjectileFromSprite(img`
@@ -321,6 +321,75 @@ let projectile2: Sprite = null
 let ship: Sprite = null
 introduction()
 let asteroids = [sprites.space.spaceAsteroid0, sprites.space.spaceAsteroid1, sprites.space.spaceAsteroid4, sprites.space.spaceAsteroid3]
+let asteroids2 = [img`
+    . . . . . . . . . e e d . . . . 
+    . . . . . . d e e e f d e e . . 
+    . . . e e d d f e 4 f f f e e . 
+    . . e e e f f f e 4 4 f f e e e 
+    d e e e f f f f e e 4 4 e d e e 
+    e e e b f f f d 4 e e 4 4 4 e e 
+    e 4 4 b b d 4 b e e e e e e e e 
+    4 f e 4 4 b b 4 e e e e e f f e 
+    4 d f e 4 4 e e 4 e 4 e f f f e 
+    e 4 d 4 4 e e e e 4 4 f f f d 4 
+    . 4 e 4 4 e f f 4 4 b d f f e 4 
+    . . e e b 4 f f f 4 b b e e 6 e 
+    . . . e b b 4 f f 6 6 4 b 6 e . 
+    . . . e e b b b 6 6 4 e e e e . 
+    . . . . e e 4 b b e e e . . . . 
+    . . . . . e e e e e e . . . . . 
+    `, img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . e e e e . . 
+    . e e e e e . e e e e e f e e . 
+    e e 4 e e e e e d f f e f f e e 
+    e 4 f 4 4 e e 4 f f e 4 4 f f e 
+    e 4 d f 4 4 e 4 e e e 4 4 4 4 e 
+    e b e f 4 4 4 4 4 e e e e e e e 
+    e b b 4 4 e f d 4 e e e d e e e 
+    . e b b 4 b e f 4 4 4 d d e e . 
+    . . . . 4 4 b b b 4 4 d 4 e . . 
+    . . . . e b e 4 4 e e b . . . . 
+    . . . . b b e e 4 b b 4 . . . . 
+    . . . . b b 4 b 4 6 4 . . . . . 
+    . . . . e b b b 6 6 e . . . . . 
+    . . . . . e 4 6 6 b e . . . . . 
+    . . . . . . . e e e . . . . . . 
+    `, img`
+    . . . . . . e e e . . . . . . . 
+    . . . . . 4 4 4 e e e . . . . . 
+    . . . e 4 e f 4 4 4 4 e . . . . 
+    . . e 4 e f f f 4 f f 4 e . . . 
+    . e e 4 e e f 4 4 e f f 4 e . . 
+    . 4 b 4 4 e 6 4 4 e e f 4 e e e 
+    . 4 b b b 6 4 b b 4 4 e 4 f f e 
+    . . 4 b b 4 f f b b 4 4 e f f e 
+    e . 4 4 4 e e f e b 4 4 e f 4 e 
+    e e 4 4 4 e e 4 4 4 b b 4 e 4 e 
+    4 e 4 b b 4 4 6 4 b b 6 b b e . 
+    b 4 e b b b 6 b e . e e 4 e . . 
+    b 4 e e 4 b b 4 e . . . . . . . 
+    b b 4 e 4 b 4 4 . . . . . . . . 
+    4 b 6 b b 4 e . . . . . . . . . 
+    . 4 4 b e . . . . . . . . . . . 
+    `, img`
+    . . . . . . . e e e 4 e . . . . 
+    . . e e b b b 4 e 4 4 4 e . . . 
+    . e e 4 b 4 e b 4 4 4 b e e . . 
+    . e 4 b e f f f b 4 b b b 4 . . 
+    . e 4 e f f f d 4 b b b b b 4 . 
+    . e 4 d f f d e 4 b b b b b 4 . 
+    e e e 4 e e e e 4 b e f d b e e 
+    e e 4 4 4 e e e 4 e f f e b b 4 
+    e e 4 b 6 4 e e 4 f f e e b b 4 
+    e 4 b e d 6 e e 4 4 4 b b e b e 
+    e 4 e f f 4 e e 4 f 4 e e e b . 
+    e 4 d f e e b 4 f f e b e e e . 
+    . e b e e e e b f e 4 b b 4 e . 
+    . . 4 b b b b b b b b b b b e . 
+    . . . e e e e b b b b b e e . . 
+    . . . . . . . . e b b e . . . . 
+    `]
 ship = sprites.create(img`
     ..........................
     ....ffff..........ffff....
@@ -406,13 +475,28 @@ game.onUpdateInterval(5000, function () {
     nave2.setKind(SpriteKind.laNave)
     nave2.y = randint(40, 140)
 })
+game.onUpdateInterval(7000, function () {
+    pause(100)
+    projectile2 = sprites.createProjectileFromSide(asteroids2[randint(0, asteroids.length - 1)], 90, 90)
+    projectile2.setKind(SpriteKind.Enemy)
+    projectile2.x = randint(10, 150)
+    projectile2 = sprites.createProjectileFromSide(asteroids2[randint(0, asteroids.length - 1)], 90, -90)
+    projectile2.setKind(SpriteKind.Enemy)
+    projectile2.x = randint(50, 160)
+    projectile2 = sprites.createProjectileFromSide(asteroids2[randint(0, asteroids.length - 1)], -90, 90)
+    projectile2.setKind(SpriteKind.Enemy)
+    projectile2.x = randint(10, 150)
+    projectile2 = sprites.createProjectileFromSide(asteroids2[randint(0, asteroids.length - 1)], -90, -90)
+    projectile2.setKind(SpriteKind.Enemy)
+    projectile2.x = randint(50, 160)
+})
 game.onUpdateInterval(2000, function () {
     projectile2 = sprites.createProjectileFromSide(asteroids[randint(0, asteroids.length - 1)], 0, 75)
     projectile2.setKind(SpriteKind.Enemy)
     projectile2.x = randint(10, 150)
 })
 forever(function () {
-    if (info.score() >= 25) {
+    if (info.score() >= 50) {
         game.over(true, effects.slash)
     }
 })
