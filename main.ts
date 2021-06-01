@@ -8,7 +8,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.laNave, function (sprite, otherS
     info.changeLifeBy(-1)
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    for (let index = 0; index < 3; index++) {
+    for (let index = 0; index < 5; index++) {
         projectile2 = sprites.createProjectileFromSprite(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 

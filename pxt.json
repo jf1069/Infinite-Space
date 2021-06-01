@@ -1,5 +1,5 @@
 {
-    "name": "gameVersion2.6",
+    "name": "Infinite Space",
     "description": "",
     "dependencies": {
         "device": "*"
@@ -16,7 +16,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "1.4.41",
+        "target": "1.4.43",
         "targetId": "arcade"
     },
     "supportedTargets": [
